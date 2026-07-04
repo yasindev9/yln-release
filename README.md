@@ -60,7 +60,7 @@ Yapılan niteliksel testlerde, dengeli sıkıştırma yapılan `mid` modunun, me
 Yalın-TokenSaver kurumsal dağıtım paketi, sisteminize tek komutla entegre edilebilir:
 
 ```bash
-pip install yln
+pip install yln-tokensaver
 ```
 
 Sistem gereksinimleri:
