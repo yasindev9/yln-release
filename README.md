@@ -2,13 +2,13 @@
 
 **Geliştirici:** Yasin Durak  
 **İletişim:** ydurak328@gmail.com 
-**Geliştirici Bağlantıları:** [GitHub](https://github.com/yasindev9) | [LinkedIn](https://www.linkedin.com/in/yasindurak/)
+**Geliştirici Bağlantıları:** [GitHub](https://github.com/yasindev9)) | [LinkedIn](https://www.linkedin.com/in/yasindurak/)
 
 ---
 
 ## Proje Hakkında
 
-Yalın-TokenSaver (yln), Büyük Dil Modelleri (LLM) tabanlı yapay zeka çözümleri geliştiren kurumsal şirketler ve SaaS girişimleri için tasarlanmış yüksek performanslı bir prompt optimizasyon middleware yazılımıdır.
+Yalın-TokenSaver (yln), LLM tabanlı yapay zeka çözümleri geliştiren kurumsal şirketler, SaaS girişimleri ve bireysel kullanıcılar için tasarlanmış yüksek performanslı bir prompt optimizasyon middleware yazılımıdır.
 
 Türkçe, morfolojik açıdan eklemeli bir dil yapısına sahip olması nedeniyle, mevcut LLM tokenizer algoritmaları tarafından İngilizceye kıyasla kelime başına 3 ila 4 kat daha fazla token parçasına bölünmektedir. Bu durum, Türkçe dilinde hizmet veren yapay zeka uygulamalarında API maliyetlerinin doğrusal olmayan bir şekilde katlanmasına ve operasyonel kârlılığın düşmesine neden olmaktadır.
 
@@ -30,7 +30,7 @@ Sistemin başarısı, gerçek dünya senaryolarını yansıtan 500 benzersiz kur
 
 ### Operasyonel Verimlilik Tablosu
 
-| Çalışma Seviyesi / Modu   | Ortalama Ek İşlem Süresi | Doğrudan Token Tasarrufu | Sistem Kararlılık Puanı | İdeal Kullanım Senaryosu                |
+| Çalışma Seviyesi / Modu   | Ortalama Ek İşlem Süresi | Doğrudan Token Tasarrufu | Sistem Tutarlılık Puanı | İdeal Kullanım Senaryosu                |
 | :------------------------ | :----------------------- | :----------------------- | :---------------------- | :-------------------------------------- |
 | **MIN Modu** *(Creative)* | 0.38 ms                  | %16.03                   | 4.74 / 5.0              | Canlı Destek, Chatbot ve Kreatif Yazım  |
 | **MID Modu** *(Balanced)* | 16.51 ms                 | %22.26                   | 4.74 / 5.0              | Kodlama Asistanları, Kurumsal Agent'lar |
@@ -45,11 +45,19 @@ Sistemin başarısı, gerçek dünya senaryolarını yansıtan 500 benzersiz kur
 
 ## Kalite Güvencesi ve Akademik Metrikler
 
-Yalın-TokenSaver, girdi metnini kısaltırken anlam kaybını sıfıra indirmek amacıyla iki aşamalı endüstriyel validasyon mimarisi kullanılarak final sürümüne getirilmiştir:
+Yalın-TokenSaver, girdi metnini kısaltırken anlam kaybını sıfıra indirmek amacıyla iki aşamalı endüstriyel validasyon mimarisi kullanılarak test edilmiş ve final sürümüne getirilmiştir:
 
 1. **BERTScore Metriği:** Sıkıştırılmış metin ile orijinal metin arasındaki anlamsal benzerliği, kelimelerin vektörel yakınlıkları (embedding) üzerinden bağlamsal olarak ölçen derin öğrenme tabanlı bir değerlendirme metriğidir. Yalın-TokenSaver, BERTScore testlerinde orijinal promptun matematiksel anlam bütünlüğünü koruduğunu kanıtlamıştır.
-2. **LLM-as-a-Judge Değerlendirmesi:** Gelişmiş dil modellerinin objektif birer evaluator olarak konumlandırılarak girdi ve çıktı kalitesini puanladığı modern bir QA mimarisidir. Yapılan testlerde sistem, 5.0 üzerinden 4.74 kararlılık skoru elde etmiştir.
+2. **LLM-as-a-Judge Değerlendirmesi:** Gelişmiş dil modellerinin objektif birer evaluator olarak konumlandırılarak girdi ve çıktı kalitesini puanladığı modern bir QA mimarisidir. Yapılan testlerde sistem, 5.0 üzerinden 4.74 kararlılık skoru elde etmiştir. 500 girdi bulunan test havuzundan rastgele seçilen 100 girdi ilk olarak 3 modda (min-mid-max) işlenmiştir. Daha sonra her 100 ham girdi ve 3 ayrı mod sonuçları (toplam 100x4=400 girdi) birbirinden bağımsız şekilde gemini-3.1-flash modeline gönderilmiş ve yanıtlar sistematik bir şekilde kayıt altına alınmıştır. Daha sonra bu kayıtlar yine aynı modele (gemini-3.1-flash) bir systemprompt ile gönderilerek ham girdi (raw_text) ile 3 modda optimize edilen girdilerin sonuçları arasında 3 kategoride 5 üzerinden puanlanması istenmiştir. (0: ham girdi ile hiçbir alakası yoktur, 5: ham girdi ile ilgili kategori bazında tamamen aynıdır.) Elde edilen sonuçlar;
+###### Sıkıştırma Modlarına Göre Genel Performans Matrisi
 
+| Sıkıştırma Modları | Anlamsal Sadakat | Çıktı Akıcılığı | Detay Koruma | Genel Başarı Puanı |
+| ------------------ | ---------------- | --------------- | ------------ | ------------------ |
+| min_saving         | 4.41 / 5.0       | 4.71 / 5.0      | 4.21 / 5.0   | 4.44 / 5.0         |
+| mid_saving         | 4.52 / 5.0       | 4.67 / 5.0      | 4.37 / 5.0   | 4.52 / 5.0         |
+| max_saving         | 4.44 / 5.0       | 4.58 / 5.0      | 4.37 / 5.0   | 4.46 / 5.0         |
+- **Modlar Arası Ortalama Varyans Sapması:** `0.256`
+- **Yalın-TokenSaver Tutarlılık Puanı:** `4.74 / 5.0`
 ### Çıktı Kalitesi Artış Paradoksu
 Yapılan niteliksel testlerde, dengeli sıkıştırma yapılan `mid` modunun, metne en az dokunan `min` modundan daha yüksek bir çıktı kalitesi skoru aldığı doğrulanmıştır. Yapay zeka modelleri, önlerindeki nezaket ve dolgu kelimelerinden kurtulduklarında doğrudan iş omurgasına odaklanmakta ve daha net, doğru yanıtlar üretmektedir.
 
@@ -69,10 +77,9 @@ Sistem gereksinimleri:
 python_requires=">=3.8"
 ```
 # Kullanım Kılavuzu
-Kütüphaneyi projelerinize dahil etmek, motoru RAM üzerinde başlatmak ve işlem hatlarını tetiklemek için aşağıdaki kurumsal entegrasyon kodunu referans alabilirsiniz.
+Kütüphaneyi projelerinize dahil etmek, motoru RAM üzerinde başlatmak ve işlem hatlarını tetiklemek için aşağıdaki entegrasyon kodunu referans alabilirsiniz.
 
 ```python
-
 from yln.core import YalinTokenSaver
 
 # 1. Motorun Başlatılması (Initialization)
@@ -96,7 +103,6 @@ if result["status"] == "processed":
     print("İşlem Süresi     :", result["metrics"]["duration_ms"], "ms")
 elif result["status"] == "limit_exceeded":
     print("Hata:", result["error_message"])
-
 ```
 ### Parametre Detayları
 #### Başlatıcı Sınıf Parametreleri (`YalinTokenSaver`)
@@ -109,13 +115,11 @@ elif result["status"] == "limit_exceeded":
 	- `"mid"`: Anlam koruma ve bütçe tasarrufunu dengede tutan kurumsal standart mod.
 	- `"max"`: Büyük veri işleme ve analiz süreçleri için agresif veri madenciliği sıkıştırması uygular.
 - `model` (str, Opsiyonel): Gönderilecek spesifik model adı. (Gelişmiş tokenizer eşleşmesi sağlar).
-
 # Lisans ve Ücretsiz Kullanım Limitleri
 Yalın-TokenSaver tescilli ve ticari bir yazılımdır. Kütüphane, lisans anahtarı girilmeksizin yerel bilgisayarınızda **günlük 50 prompt** sınırı ile ücretsiz deneme sürümünde çalışmaktadır. Günlük sınır aşıldığında sistem otomatik olarak koruma moduna geçerek girdi metnini sıkıştırmadan bypass eder.
 Kurumsal altyapılar için günlük limit sınırını kaldırmak, sınırsız API erişimi ve teknik destek almak adına ticari lisans anahtarınızı bağlantılar üzerinden temin edebilirsiniz.
 
 [Kurumsal Lisans Anahtarı Satın Al (Shopier)](https://www.shopier.com/yasindurak)
-
 [Resmi Dağıtım & GitHub](https://github.com/yasindev9/yln-release)
 
 _Yalın-TokenSaver kapalı kaynaklı (closed-source) ticari bir yazılımdır. Paket, derlenmiş ve şifrelenmiş biçimde dağıtılmaktadır; kaynak kod paylaşımı içermez._
