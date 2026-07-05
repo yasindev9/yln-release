@@ -30,7 +30,7 @@ Sistemin başarısı, gerçek dünya senaryolarını yansıtan 500 benzersiz kur
 
 ### Operasyonel Verimlilik Tablosu
 
-| Çalışma Seviyesi / Modu   | Ortalama Ek İşlem Süresi | Doğrudan Token Tasarrufu | Sistem Tutarlılık Puanı | İdeal Kullanım Senaryosu                |
+| Çalışma Seviyesi / Modu   | Ortalama Ek İşlem Süresi | Doğrudan Token Tasarrufu | Sistemin Genel Tutarlılık Puanı | İdeal Kullanım Senaryosu                |
 | :------------------------ | :----------------------- | :----------------------- | :---------------------- | :-------------------------------------- |
 | **MIN Modu** *(Creative)* | 0.38 ms                  | %16.03                   | 4.74 / 5.0              | Canlı Destek, Chatbot ve Kreatif Yazım  |
 | **MID Modu** *(Balanced)* | 16.51 ms                 | %22.26                   | 4.74 / 5.0              | Kodlama Asistanları, Kurumsal Agent'lar |
