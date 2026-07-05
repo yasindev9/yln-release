@@ -2,7 +2,6 @@
 
 **Geliştirici:** Yasin Durak  
 **İletişim:** ydurak328@gmail.com
-
 **Geliştirici Bağlantıları:** [GitHub](https://github.com/yasindev9) | [LinkedIn](https://www.linkedin.com/in/yasindurak/)
 
 ---
