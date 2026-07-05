@@ -35,6 +35,7 @@ Sistemin başarısı, gerçek dünya senaryolarını yansıtan 500 benzersiz kur
 | **MIN Modu** *(Creative)* | 0.38 ms                  | %16.03                   | 4.74 / 5.0              | Canlı Destek, Chatbot ve Kreatif Yazım  |
 | **MID Modu** *(Balanced)* | 16.51 ms                 | %22.26                   | 4.74 / 5.0              | Kodlama Asistanları, Kurumsal Agent'lar |
 | **MAX Modu** *(Hardcore)* | 15.58 ms                 | %27.03                   | 4.74 / 5.0              | Büyük Veri Analitiği, Formatlama İşleri |
+
 *Max modu işlem süresinin MID moduna göre daha düşük olması regex yapılarının daha kapsayıcı olmasıyla ilgilidir.*
 ### Kategori Bazlı Maksimum Verimlilik Dağılımı
 * **Metin Formatlama ve Düzenleme (`text_formatting`):** Kurumsal raporlama ve veri düzenleme şablonlarında %30.98 tasarruf oranı.
