@@ -1,7 +1,7 @@
 # Yalın-TokenSaver (yln)
 
 **Geliştirici:** Yasin Durak  
-**İletişim:** ydurak328@gmail.com
+**İletişim:** ydurak328@gmail.com 
 **Geliştirici Bağlantıları:** [GitHub](https://github.com/yasindev9) | [LinkedIn](https://www.linkedin.com/in/yasindurak/)
 
 ---
@@ -35,7 +35,7 @@ Sistemin başarısı, gerçek dünya senaryolarını yansıtan 500 benzersiz kur
 | **MIN Modu** *(Creative)* | 0.38 ms                  | %16.03                   | 4.74 / 5.0              | Canlı Destek, Chatbot ve Kreatif Yazım  |
 | **MID Modu** *(Balanced)* | 16.51 ms                 | %22.26                   | 4.74 / 5.0              | Kodlama Asistanları, Kurumsal Agent'lar |
 | **MAX Modu** *(Hardcore)* | 15.58 ms                 | %27.03                   | 4.74 / 5.0              | Büyük Veri Analitiği, Formatlama İşleri |
-
+*Max modu işlem süresinin MID moduna göre daha düşük olması regex yapılarının daha kapsayıcı olmasıyla ilgilidir.*
 ### Kategori Bazlı Maksimum Verimlilik Dağılımı
 * **Metin Formatlama ve Düzenleme (`text_formatting`):** Kurumsal raporlama ve veri düzenleme şablonlarında %30.98 tasarruf oranı.
 * **Yazılım ve Kodlama (`natural_coding`):** Doğal dille yazılan teknik komutlardaki gürültülerin elenmesiyle %28.64 net bütçe kazancı.
@@ -48,14 +48,14 @@ Sistemin başarısı, gerçek dünya senaryolarını yansıtan 500 benzersiz kur
 Yalın-TokenSaver, girdi metnini kısaltırken anlam kaybını sıfıra indirmek amacıyla iki aşamalı endüstriyel validasyon mimarisi kullanılarak test edilmiş ve final sürümüne getirilmiştir:
 
 1. **BERTScore Metriği:** Sıkıştırılmış metin ile orijinal metin arasındaki anlamsal benzerliği, kelimelerin vektörel yakınlıkları (embedding) üzerinden bağlamsal olarak ölçen derin öğrenme tabanlı bir değerlendirme metriğidir. Yalın-TokenSaver, BERTScore testlerinde orijinal promptun matematiksel anlam bütünlüğünü koruduğunu kanıtlamıştır.
-2. **LLM-as-a-Judge Değerlendirmesi:** Gelişmiş dil modellerinin objektif birer evaluator olarak konumlandırılarak girdi ve çıktı kalitesini puanladığı modern bir QA mimarisidir. Yapılan testlerde sistem, 5.0 üzerinden 4.74 kararlılık skoru elde etmiştir. 500 girdi bulunan test havuzundan rastgele seçilen 100 girdi ilk olarak 3 modda (min-mid-max) işlenmiştir. Daha sonra her 100 ham girdi ve 3 ayrı mod sonuçları (toplam 100x4=400 girdi) birbirinden bağımsız şekilde gemini-3.1-flash modeline gönderilmiş ve yanıtlar sistematik bir şekilde kayıt altına alınmıştır. Daha sonra bu kayıtlar yine aynı modele (gemini-3.1-flash) bir systemprompt ile gönderilerek ham girdi (raw_text) ile 3 modda optimize edilen girdilerin sonuçları arasında 3 kategoride 5 üzerinden puanlanması istenmiştir. (0: ham girdi ile hiçbir alakası yoktur, 5: ham girdi ile ilgili kategori bazında tamamen aynıdır.) Elde edilen sonuçlar;
+2. **LLM-as-a-Judge Değerlendirmesi:** Gelişmiş dil modellerinin objektif birer evaluator olarak konumlandırılarak girdi ve çıktı kalitesini puanladığı modern bir QA mimarisidir. Yapılan testlerde sistem, 5.0 üzerinden 4.74 kararlılık skoru elde etmiştir. 500 girdi bulunan test havuzundan rastgele seçilen 100 girdi ilk olarak 3 modda (min-mid-max) işlenmiştir. Daha sonra her 100 ham girdi ve 3 ayrı mod sonuçları (toplam 100x4=400 girdi) birbirinden bağımsız şekilde gemini-3.1-flash modeline gönderilmiş ve yanıtlar sistematik bir şekilde kayıt altına alınmıştır. Daha sonra bu kayıtlar yine aynı modele (gemini-3.1-flash) bir `system prompt` ile gönderilerek ham girdi (raw_text) ile 3 modda optimize edilen girdilerin sonuçları arasında 3 kategoride 5 üzerinden puanlanması istenmiştir. (0: ham girdi ile hiçbir alakası yoktur, 5: ham girdi ile ilgili kategori bazında tamamen aynıdır.) Elde edilen sonuçlar;
 ###### Sıkıştırma Modlarına Göre Genel Performans Matrisi
 
 | Sıkıştırma Modları | Anlamsal Sadakat | Çıktı Akıcılığı | Detay Koruma | Genel Başarı Puanı |
 | ------------------ | ---------------- | --------------- | ------------ | ------------------ |
-| min_saving         | 4.41 / 5.0       | 4.71 / 5.0      | 4.21 / 5.0   | 4.44 / 5.0         |
-| mid_saving         | 4.52 / 5.0       | 4.67 / 5.0      | 4.37 / 5.0   | 4.52 / 5.0         |
-| max_saving         | 4.44 / 5.0       | 4.58 / 5.0      | 4.37 / 5.0   | 4.46 / 5.0         |
+| min                | 4.41 / 5.0       | 4.71 / 5.0      | 4.21 / 5.0   | 4.44 / 5.0         |
+| mid                | 4.52 / 5.0       | 4.67 / 5.0      | 4.37 / 5.0   | 4.52 / 5.0         |
+| max                | 4.44 / 5.0       | 4.58 / 5.0      | 4.37 / 5.0   | 4.46 / 5.0         |
 - **Modlar Arası Ortalama Varyans Sapması:** `0.256`
 - **Yalın-TokenSaver Tutarlılık Puanı:** `4.74 / 5.0`
 ### Çıktı Kalitesi Artış Paradoksu
@@ -107,7 +107,7 @@ elif result["status"] == "limit_exceeded":
 ### Parametre Detayları
 #### Başlatıcı Sınıf Parametreleri (`YalinTokenSaver`)
 - `license_key` (str, Opsiyonel): Ticari aboneliğinize ait kriptografik lisans anahtarı. Deneme sürümü için `None` veya boş bırakılmalıdır.
-- `default_model` (str, Varsayılan: `"gpt-4o"`): Token sayım işlemlerinde baz alınacak varsayılan dil modeli mimarisi 'cl100k_base' olarak belirlenir.
+- `default_model` (str, Varsayılan: `"gpt-4"`): Token sayım işlemlerinde baz alınacak varsayılan dil modeli mimarisi 'cl100k_base' olarak belirlenir.
 #### İşlem Hattı Parametreleri (`optimize_prompt`)
 - `raw_text` (str, Zorunlu): LLM'e gönderilecek olan ham, sıkıştırılmamış Türkçe prompt metni.
 - `mode` (str, Varsayılan: `"mid"`): Uygulanacak sıkıştırma agresifliği. Seçenekler:
