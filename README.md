@@ -132,6 +132,7 @@ Yalın-TokenSaver tescilli ve ticari bir yazılımdır. Kütüphane, lisans anah
 Kurumsal altyapılar için günlük limit sınırını kaldırmak, sınırsız API erişimi ve teknik destek almak adına ticari lisans anahtarınızı bağlantılar üzerinden temin edebilirsiniz.
 
 [Kurumsal Lisans Anahtarı Satın Al (Shopier)](https://www.shopier.com/yasindurak)
+
 [Resmi Dağıtım & GitHub](https://github.com/yasindev9/yln-release)
 
 _Yalın-TokenSaver kapalı kaynaklı (closed-source) ticari bir yazılımdır. Paket, derlenmiş ve şifrelenmiş biçimde dağıtılmaktadır; kaynak kod paylaşımı içermez._
