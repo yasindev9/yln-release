@@ -24,6 +24,7 @@ Metnin kreatif dokusunu, edebi üslubunu ve temel ek yapılarını kesin olarak 
 | `daily_explanation`   | 139              | 5760          | 4787               | **%16.89**           | 0                     |
 | `text_formatting`     | 128              | 5133          | 4334               | **%15.57**           | 0                     |
 | `creative_generation` | 94               | 4016          | 3494               | **%13.00**           | 0                     |
+
 Yaratıcı içerik üretimlerinde (`creative_generation`) anlam kaybı riskini sıfıra indirmek adına algoritma bilerek muhafazakar davranmış ve tasarrufu %13.00 seviyesinde tutmuştur. Yazılımcıların doğal dille kod talep ettiği `natural_coding` kategorisinde ise ricaların ve selamlamaların temizlenmesiyle daha ilk modda %18'e yakın bir kazanç yakalanmıştır.
 ### 3.2. MID Modu Kategori Karnesi
 Zeyrek morfolojik analiz motorunun ve 14 adet fonksiyonel Regex kuralının devreye girdiği, anlam iskeletini bozmadan eylemleri emir kipine çeken dengeli sıkıştırma dağılımı:
@@ -34,6 +35,7 @@ Zeyrek morfolojik analiz motorunun ve 14 adet fonksiyonel Regex kuralının devr
 | `daily_explanation`   | 139              | 5760          | 4531               | **%21.34**           | 0                     |
 | `text_formatting`     | 128              | 5133          | 4033               | **%21.43**           | 0                     |
 | `creative_generation` | 94               | 4016          | 3165               | **%21.19**           | 0                     |
+
 Tüm kategorilerde %21 ile %25 bandında homojen, son derece kararlı bir sıkıştırma grafiği elde edilmiştir. Özellikle kodlama asistanı entegrasyonlarında prompt bütçesini tam 1/4 oranında (%24.80) hafifletmesi, MID modunu ticari yazılım entegrasyonları için ana odak noktası haline getirmektedir.
 ### 3.3. MAX Modu Kategori Karnesi
 Anlam sınırlarını zorlayan, edat, bağlaç, yönelim zarfları ve sıfat yapım eklerini tamamen budayarak metni saf bir kavramsal keyword yığınına dönüştüren hardcore sıkıştırma dağılımı:
@@ -44,6 +46,7 @@ Anlam sınırlarını zorlayan, edat, bağlaç, yönelim zarfları ve sıfat yap
 |`natural_coding`|139|5447|3887|**%28.64**|0|
 |`creative_generation`|94|4016|3040|**%24.30**|0|
 |`daily_explanation`|139|5760|4384|**%23.89**|0|
+
 `text_formatting` kategorisinde **%30.98** gibi ekstrem bir tasarruf oranına ulaşılmıştır. Sistem, veri manipülasyonu, formatlama ve json çıktı talebi içeren uzun kurumsal prompt girdilerindeki tüm sentaks yükünü kusursuz temizlemiş, maliyeti neredeyse üçte bir oranında düşürmeyi başarmıştır.
 # 4. Kurumsal Maliyet ve ROI Projeksiyonu
 Yalın-TokenSaver'ın kurumsal sistemlerdeki ekonomik getirisini (Return on Investment - ROI) simüle etmek adına, günde ortalama **1 Milyon Türkçe prompt** (Ortalama prompt başına 200 token ham girdi hacmi varsayımıyla) işleyen bir SaaS firmasının maliyet tablosu modellenmiştir.
