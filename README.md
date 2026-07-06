@@ -1,4 +1,5 @@
 # Yalın-TokenSaver (yln)
+**Durum:** 🟡 v1.0.0 — Ön İzleme (Preview)
 
 **Geliştirici:** Yasin Durak  
 **İletişim:** ydurak328@gmail.com 
@@ -60,6 +61,21 @@ Yalın-TokenSaver, girdi metnini kısaltırken anlam kaybını sıfıra indirmek
 - **Yalın-TokenSaver Tutarlılık Puanı:** `4.74 / 5.0`
 ### Çıktı Kalitesi Artış Paradoksu
 Yapılan niteliksel testlerde, dengeli sıkıştırma yapılan `mid` modunun, metne en az dokunan `min` modundan daha yüksek bir çıktı kalitesi skoru aldığı doğrulanmıştır. Yapay zeka modelleri, önlerindeki nezaket ve dolgu kelimelerinden kurtulduklarında doğrudan iş omurgasına odaklanmakta ve daha net, doğru yanıtlar üretmektedir.
+
+---
+
+# Proje Statüsü ve Şeffaflık Notu
+
+Yalın-TokenSaver şu anda v1.0.0 (Preview / Ön İzleme) aşamasındadır ve aktif geliştirme sürecine devam etmektedir. Bu bölüm, projeye güvenle karar verebilmeniz için mevcut sınırlamaları ve doğrulama yöntemlerini şeffaf bir şekilde paylaşmak amacıyla eklenmiştir.
+
+Doğrulama Metodolojisi Hakkında:
+Raporlanan BERTScore ve LLM-as-a-Judge sonuçları, projenin geliştiricisi tarafından hazırlanan birden fazla test seti ile optimize edildikten sonra tek bir test seti (500 prompt) üzerinde elde edilmiştir. LLM-as-a-Judge testlerinde değerlendirme, çıktıyı üreten modelin kendisi (self-evaluation) tarafından yapılmıştır; bağımsız bir hakem model veya insan değerlendirmesiyle henüz çapraz doğrulanmamıştır. Bu, sonuçların yönünü geçersiz kılmaz, ancak mutlak doğruluk iddiası olarak değil, geliştirme aşamasında elde edilmiş ön bulgular olarak okunmalıdır. Bağımsız hakem model karşılaştırması ve daha geniş, üçüncü taraf test setleriyle doğrulama, geliştirme öncelikleri arasındadır.
+
+Detaylı teknik raporlar /docs klasöründe mevcuttur:
+
+[Token Tasarruf Raporu](docs\02_TOKEN_SAVINGS_REPORT.md)
+[BERTScore Benchmark Raporu](docs\03_BERTSCORE_BENCHMARK.md)
+[LLM-as-a-Judge Değerlendirme Matrisi](docs\04_LLM_AS_A_JUDGE_MATRIX.md)
 
 ---
 
@@ -130,6 +146,16 @@ elif result["status"] == "limit_exceeded":
 	- `"mid"`: Anlam koruma ve bütçe tasarrufunu dengede tutan kurumsal standart mod.
 	- `"max"`: Büyük veri işleme ve analiz süreçleri için agresif veri madenciliği sıkıştırması uygular.
 - `model` (str, Opsiyonel): Gönderilecek spesifik model adı. (Gelişmiş tokenizer eşleşmesi sağlar).
+
+# Derleme Mimarisi Hakkında
+
+Yalın-TokenSaver, saf Python yerine Cython (Stable ABI / abi3) ile derlenerek dağıtılır. Bunun iki temel gerekçesi vardır:
+
+Performans: Regex pipeline ve morfolojik analiz katmanlarının C seviyesinde derlenmesi, saf Python yorumlayıcısına göre gözle görülür bir hız artışı sağlar; bu da milisaniye-altı gecikme hedefini mümkün kılar.
+Ticari Kaynak Koruması: Cython derlemesi, ticari bir ürün olarak kaynak kodun doğrudan okunabilir/kopyalanabilir biçimde dağıtılmasını engeller.
+
+Cython derlemesi bir obfuscation (zorlaştırma) katmanıdır, kriptografik bir şifreleme mekanizması değildir. Amacımız kaynak kodun rastgele kopyalanmasını/dağıtılmasını pratik olarak zorlaştırmak ve performans kazanmaktır. Güvenlik veya gizlilik iddialarımız (ör. "veriniz yerel işlenir, dışarı gönderilmez") bu derleme yönteminden değil, mimarinin tamamen yerel/çevrimdışı çalışmasından kaynaklanır — bu iddiayı kendi ağ trafiğinizi izleyerek (Wireshark, Fiddler vb.) bağımsız olarak doğrulayabilirsiniz.
+
 # Lisans ve Ücretsiz Kullanım Limitleri
 Yalın-TokenSaver tescilli ve ticari bir yazılımdır. Kütüphane, lisans anahtarı girilmeksizin yerel bilgisayarınızda **günlük 50 prompt** sınırı ile ücretsiz deneme sürümünde çalışmaktadır. Günlük sınır aşıldığında sistem otomatik olarak koruma moduna geçerek girdi metnini sıkıştırmadan bypass eder.
 Kurumsal altyapılar için günlük limit sınırını kaldırmak, sınırsız API erişimi ve teknik destek almak adına ticari lisans anahtarınızı bağlantılar üzerinden temin edebilirsiniz.
