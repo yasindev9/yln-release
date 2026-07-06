@@ -73,9 +73,9 @@ Raporlanan BERTScore ve LLM-as-a-Judge sonuçları, projenin geliştiricisi tara
 
 Detaylı teknik raporlar /docs klasöründe mevcuttur:
 
-[Token Tasarruf Raporu](docs\02_TOKEN_SAVINGS_REPORT.md)
-[BERTScore Benchmark Raporu](docs\03_BERTSCORE_BENCHMARK.md)
-[LLM-as-a-Judge Değerlendirme Matrisi](docs\04_LLM_AS_A_JUDGE_MATRIX.md)
+[Token Tasarruf Raporu](docs/02_TOKEN_SAVINGS_REPORT.md)
+[BERTScore Benchmark Raporu](docs/03_BERTSCORE_BENCHMARK.md)
+[LLM-as-a-Judge Değerlendirme Matrisi](docs/04_LLM_AS_A_JUDGE_MATRIX.md)
 
 ---
 
