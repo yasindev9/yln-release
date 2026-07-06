@@ -108,8 +108,11 @@ result = saver.optimize_prompt(raw_text=raw_prompt, mode="mid", model="gpt-4o")
 
 # 4. Çıktıların ve Metriklerin Analizi
 if result["status"] == "processed":
+    optimized_prompt = result["optimized_text"]
+
     print("İşlem Durumu    :", result["status"])
     print("Ham Token Sayısı :", result["metrics"]["raw_tokens"])
+    print()
     print("Yeni Token Sayısı:", result["metrics"]["optimized_tokens"])
     print("Net Tasarruf     : %", result["metrics"]["savings_percentage"])
     print("İşlem Süresi     :", result["metrics"]["duration_ms"], "ms")
